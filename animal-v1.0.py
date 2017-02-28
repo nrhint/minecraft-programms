@@ -1,3 +1,7 @@
+#First itiraition if the animal programm
+#
+#
+
 from mcpi.minecraft import Minecraft
 import time
 import random

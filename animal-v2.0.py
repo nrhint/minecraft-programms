@@ -1,3 +1,7 @@
+#Added auto update creates 3 animals.
+#
+#
+
 from mcpi.minecraft import Minecraft
 import time
 import random
@@ -32,13 +36,13 @@ x, y, z = mc.player.getPos()
 a0 = animal(x, y, z)
 a2 = animal(x, y, z)
 a3 = animal(x, y, z)
-a4 = animal(x, y, z)
-a5 = animal(x, y, z)
-a6 = animal(x, y, z)
-a7 = animal(x, y, z)
-a8 = animal(x, y, z)
-a9 = animal(x, y, z)
-a1 = animal(x, y, z)
+##a4 = animal(x, y, z)
+##a5 = animal(x, y, z)
+##a6 = animal(x, y, z)
+##a7 = animal(x, y, z)
+##a8 = animal(x, y, z)
+##a9 = animal(x, y, z)
+##a1 = animal(x, y, z)
 
 #main loop
 
@@ -48,11 +52,11 @@ while True:
     a0.animate()
     a1.animate()
     a2.animate()
-    a3.animate()
-    a4.animate()
-    a5.animate()
-    a6.animate()
-    a7.animate()
-    a8.animate()
-    a9.animate()
+##    a3.animate()
+##    a4.animate()
+##    a5.animate()
+##    a6.animate()
+##    a7.animate()
+##    a8.animate()
+##    a9.animate()
     time.sleep(0.5)
