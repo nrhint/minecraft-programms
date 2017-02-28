@@ -19,20 +19,40 @@ class animal:
     def animate(self):
         #clear the space
         mc.setBlocks(self.x, self.y, self.z, self.x, self.y-2, self.z, air)
-        self.x = self.x + random.randint(-1, 1)
-        self.z = self.y + random.randint(-1, 1)
+        if random.randint(0, 1) == 1:
+            self.x = self.x + random.randint(-1, 1)
+        else:
+            self.z = self.z + random.randint(-1, 1)
         if random.randint(1, 5) == 5:
-            self.y = self.z + random.randint(-1, 1)
+            self.y = self.y + random.randint(-1, 1)
         print(self.x, self.y, self.z)
         mc.setBlock(self.x, self.y, self.z, stone)
         
 x, y, z = mc.player.getPos()
+a0 = animal(x, y, z)
+a2 = animal(x, y, z)
+a3 = animal(x, y, z)
+a4 = animal(x, y, z)
+a5 = animal(x, y, z)
+a6 = animal(x, y, z)
+a7 = animal(x, y, z)
+a8 = animal(x, y, z)
+a9 = animal(x, y, z)
 a1 = animal(x, y, z)
-   
+
 #main loop
 
-time.sleep(3)
+time.sleep(1)
 
 while True:
+    a0.animate()
     a1.animate()
-    time.sleep(1)
+    a2.animate()
+    a3.animate()
+    a4.animate()
+    a5.animate()
+    a6.animate()
+    a7.animate()
+    a8.animate()
+    a9.animate()
+    time.sleep(0.5)
