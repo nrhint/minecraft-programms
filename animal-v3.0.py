@@ -1,4 +1,4 @@
-#I added a hunting and a running programm
+#I added a death programm
 #
 #
 
@@ -23,6 +23,11 @@ class animal:
 
     def animate(self):
         x, y, z = mc.player.getPos()
+        if 0 == mc.getBlock(self.x, self.y, self.z):
+            self.terminate()
+        else:
+            pass
+
         #clear the space
         mc.setBlocks(self.x, self.y, self.z, self.x, self.y-2, self.z, air)
         if self.mode == 0:
@@ -60,8 +65,12 @@ class animal:
                 self.z = self.z + 1
             #print(self.z - z > 1)
 
+        #check for death
+
         mc.setBlocks(self.x, self.y, self.z, self.x, self.y-2, self.z, stone)
         #print(self.x, self.y, self.z)
+    def terminate(self):
+        print("died")
         
         
 #x, y, z = mc.player.getPos()

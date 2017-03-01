@@ -35,7 +35,7 @@ class animal:
 x, y, z = mc.player.getPos()
 a0 = animal(x, y, z)
 a2 = animal(x, y, z)
-a3 = animal(x, y, z)
+a1 = animal(x, y, z)
 ##a4 = animal(x, y, z)
 ##a5 = animal(x, y, z)
 ##a6 = animal(x, y, z)
