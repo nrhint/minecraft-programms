@@ -11,6 +11,7 @@ mc = Minecraft.create()
 
 air = 0
 stone = 57
+death = 46
 dirt = 2
 
 class animal:
@@ -19,6 +20,7 @@ class animal:
         self.y = y
         self.z = z
         self.mode = mode
+        self.run = True
         mc.setBlocks(self.x, self.y, self.z, self.x, self.y-2, self.z, stone)
 
     def animate(self):
@@ -29,47 +31,51 @@ class animal:
             pass
 
         #clear the space
-        mc.setBlocks(self.x, self.y, self.z, self.x, self.y-2, self.z, air)
-        if self.mode == 0:
-            if random.randint(0, 1) == 1:
-                self.x = self.x + random.randint(-1, 1)
-            else:
-                self.z = self.z + random.randint(-1, 1)
-            if random.randint(1, 5) == 5:
-                self.y = self.y + random.randint(-1, 1)
-        elif self.mode == 1:
-            #hunt
-            if self.x - x  < 1:
-                self.x = self.x + 1
-            if self.x - x  > -1:
-                self.x = self.x -1
-            if self.z - z < 1:
-                self.z = self.z + 1
-            if self.z - z > 1:
-                self.z = self.z - 1
-            if self.y - y < 1:
-                self.y = self.y + 1
-            if self.y - y > 1:
-                self.y = self.y - 1
+        if self.run == True:
+            mc.setBlocks(self.x, self.y, self.z, self.x, self.y-2, self.z, air)
+            if self.mode == 0:
+                if random.randint(0, 1) == 1:
+                    self.x = self.x + random.randint(-1, 1)
+                else:
+                    self.z = self.z + random.randint(-1, 1)
+                if random.randint(1, 5) == 5:
+                    self.y = self.y + random.randint(-1, 1)
+            elif self.mode == 1:
+                #hunt
+                if self.x - x  < 1:
+                    self.x = self.x + 1
+                if self.x - x  > -1:
+                    self.x = self.x -1
+                if self.z - z < 1:
+                    self.z = self.z + 1
+                if self.z - z > 1:
+                    self.z = self.z - 1
+                if self.y - y < 1:
+                    self.y = self.y + 1
+                if self.y - y > 1:
+                    self.y = self.y - 1
 
-            #print(self.z - z > 1)
-        elif self.mode == 2:
-            #run
-            if self.x - x  < 1:
-                self.x = self.x - 1
-            if self.x - x  > -1:
-                self.x = self.x +1
-            if self.z - z < 1:
-                self.z = self.z - 1
-            if self.z - z > 1:
-                self.z = self.z + 1
-            #print(self.z - z > 1)
+                #print(self.z - z > 1)
+            elif self.mode == 2:
+                #run
+                if self.x - x  < 1:
+                    self.x = self.x - 1
+                if self.x - x  > -1:
+                    self.x = self.x +1
+                if self.z - z < 1:
+                    self.z = self.z - 1
+                if self.z - z > 1:
+                    self.z = self.z + 1
+            print(self.x, self.y, self.z)
+        else:
+            mc.setBlocks(self.x, self.y, self.z, self.x, self.y-2, self.z, death, 1)
 
         #check for death
 
         mc.setBlocks(self.x, self.y, self.z, self.x, self.y-2, self.z, stone)
         #print(self.x, self.y, self.z)
     def terminate(self):
+        self.run = False
         print("died")
         
         
