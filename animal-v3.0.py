@@ -66,13 +66,16 @@ class animal:
                     self.z = self.z - 1
                 if self.z - z > 1:
                     self.z = self.z + 1
-            print(self.x, self.y, self.z)
+            print(self, self.x, self.y, self.z)
+            mc.setBlocks(self.x, self.y, self.z, self.x, self.y-2, self.z, stone)
         else:
-            mc.setBlocks(self.x, self.y, self.z, self.x, self.y-2, self.z, death, 1)
+            mc.setBlocks(self.x, self.y, self.z, self.x, self.y-2, self.z, air, 1)
+            self.x = random.randint(-100, 100)
+            self.y = random.randint(-60, 60)
+            self.z = random.randint(-100, 100)
+            self.run = True
 
         #check for death
-
-        mc.setBlocks(self.x, self.y, self.z, self.x, self.y-2, self.z, stone)
         #print(self.x, self.y, self.z)
     def terminate(self):
         self.run = False
@@ -81,18 +84,45 @@ class animal:
         
 #x, y, z = mc.player.getPos()
 x = random.randint(-100, 100)
-y = random.randint(-100, 100)
+y = random.randint(-60, 60)
 z = random.randint(-100, 100)
 a0 = animal(x, y, z, 1)
-##a1 = animal(x, y, z, 0)
-##a2 = animal(x, y, z, 0)
-##a3 = animal(x, y, z, 0)
-##a4 = animal(x, y, z, 0)
-##a5 = animal(x, y, z, 0)
-##a6 = animal(x, y, z, 0)
-##a7 = animal(x, y, z, 0)
-##a8 = animal(x, y, z, 0)
-##a9 = animal(x, y, z, 0)
+x = random.randint(-100, 100)
+y = random.randint(-60, 60)
+z = random.randint(-100, 100)
+a1 = animal(x, y, z, 1)
+x = random.randint(-100, 100)
+y = random.randint(-60, 60)
+z = random.randint(-100, 100)
+a2 = animal(x, y, z, 1)
+##x = random.randint(-100, 100)
+##y = random.randint(-60, 60)
+##z = random.randint(-100, 100)
+##a3 = animal(x, y, z, 1)
+##x = random.randint(-100, 100)
+##y = random.randint(-60, 60)
+##z = random.randint(-100, 100)
+##a4 = animal(x, y, z, 1)
+##x = random.randint(-100, 100)
+##y = random.randint(-60, 60)
+##z = random.randint(-100, 100)
+##a5 = animal(x, y, z, 1)
+##x = random.randint(-100, 100)
+##y = random.randint(-60, 60)
+##z = random.randint(-100, 100)
+##a6 = animal(x, y, z, 1)
+##x = random.randint(-100, 100)
+##y = random.randint(-60, 60)
+##z = random.randint(-100, 100)
+##a7 = animal(x, y, z, 1)
+##x = random.randint(-100, 100)
+##y = random.randint(-60, 60)
+##z = random.randint(-100, 100)
+##a8 = animal(x, y, z, 1)
+##x = random.randint(-100, 100)
+##y = random.randint(-60, 60)
+##z = random.randint(-100, 100)
+##a9 = animal(x, y, z, 1)
 
 #main loop
 
@@ -100,8 +130,8 @@ time.sleep(1)
 
 while True:
     a0.animate()
-##    a1.animate()
-##    a2.animate()
+    a1.animate()
+    a2.animate()
 ##    a3.animate()
 ##    a4.animate()
 ##    a5.animate()
@@ -109,4 +139,4 @@ while True:
 ##    a7.animate()
 ##    a8.animate()
 ##    a9.animate()
-    time.sleep(0.15)
+    time.sleep(0.10)
